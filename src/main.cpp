@@ -4,7 +4,7 @@
 // Target: Arduino Uno R4
 // Output: Pin 7 (Update to your wiring)
 
-const int VSS_PIN = 7;
+const int VSS_PIN = 8;
 const float HZ_PER_MPH = 1.139f;
 const float MAX_MPH = 120.0f;
 const int MIN_LOOP_MS = 15000;
