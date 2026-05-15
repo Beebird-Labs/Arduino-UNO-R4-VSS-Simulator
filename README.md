@@ -56,4 +56,4 @@ The simulator generates a square wave signal where the frequency is proportional
 
 ## License
 
-This project is open source. Please check the license file for details.
+This project is licensed under the [GNU General Public License v3.0](LICENSE).
