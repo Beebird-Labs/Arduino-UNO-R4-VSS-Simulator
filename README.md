@@ -1,3 +1,5 @@
+[![Build](https://github.com/Beebird-Labs/Arduino-UNO-R4-VSS-Simulator/actions/workflows/build.yml/badge.svg)](https://github.com/Beebird-Labs/Arduino-UNO-R4-VSS-Simulator/actions/workflows/build.yml)
+
 # Arduino UNO R4 VSS Simulator
 
 This project is a phase-continuous Vehicle Speed Sensor (VSS) simulator for the Arduino Uno R4. It generates a simulated speed signal that ramps up and down, mimicking the output of a vehicle's speed sensor for testing purposes. This code simulates the VSS (or SPD) signal from a 2000 Toyota Crown, but it should work for any Toyota of that vintage and should be easily adaptable to other vehicles.
