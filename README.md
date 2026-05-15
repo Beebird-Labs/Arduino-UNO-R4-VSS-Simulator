@@ -2,11 +2,11 @@
 
 # Arduino UNO R4 VSS Simulator
 
-This project is a phase-continuous Vehicle Speed Sensor (VSS) simulator for the Arduino Uno R4. It generates a simulated speed signal that ramps up and down, mimicking the output of a vehicle's speed sensor for testing purposes. This code simulates the VSS (or SPD) signal from a 2000 Toyota Crown, but it should work for any Toyota of that vintage and should be easily adaptable to other vehicles.
+This project is a Vehicle Speed Sensor (VSS) simulator for the Arduino Uno R4. It generates a simulated speed signal that ramps up and down, mimicking the output of a vehicle's speed sensor for testing purposes. This code simulates the VSS (or SPD) signal from a 2000 Toyota Crown, but it should work for any Toyota of that vintage and should be easily adaptable to other vehicles.
 
 ## Features
 
-- Phase-continuous VSS signal generation
+- VSS signal generation
 - Speed ramps from 0 to 120 MPH and back down
 - Random cycle durations for varied simulation
 - Outputs on digital pin 7
