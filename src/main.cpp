@@ -2,13 +2,22 @@
 
 // Phase-Continuous VSS Simulator
 // Target: Arduino Uno R4
-// Output: Pin 7 (Update to your wiring)
+// Output: Pin 8 (Update to your wiring)
 
 const int VSS_PIN = 8;
 const float HZ_PER_MPH = 1.139f;
 const float MAX_MPH = 120.0f;
 const int MIN_LOOP_MS = 15000;
 const int MAX_LOOP_MS = 45000;
+const float FIXED_OUTPUT_HZ = 70.0f;
+
+enum OutputMode
+{
+  MODE_SWEEP,
+  MODE_FIXED_70HZ
+};
+
+const OutputMode OUTPUT_MODE = MODE_SWEEP;
 
 // State tracking for the sweep
 float current_mph = 0.0f;
@@ -34,10 +43,36 @@ void setup()
   current_duration_ms = random(MIN_LOOP_MS, MAX_LOOP_MS + 1) / 2;
 
   Serial.println("Phase-Continuous VSS Simulator Started");
+
+  if (OUTPUT_MODE == MODE_FIXED_70HZ)
+  {
+    Serial.print("Mode: Fixed ");
+    Serial.print(FIXED_OUTPUT_HZ);
+    Serial.println(" Hz");
+  }
+  else
+  {
+    Serial.println("Mode: Sweep");
+  }
 }
 
 void loop()
 {
+  if (OUTPUT_MODE == MODE_FIXED_70HZ)
+  {
+    const uint32_t half_period_us = (uint32_t)(1000000.0f / (FIXED_OUTPUT_HZ * 2.0f));
+    uint32_t now_us = micros();
+
+    if (now_us - last_toggle_us >= half_period_us)
+    {
+      last_toggle_us = now_us;
+      pin_state = !pin_state;
+      digitalWrite(VSS_PIN, pin_state ? HIGH : LOW);
+    }
+
+    return;
+  }
+
   unsigned long now_ms = millis();
   unsigned long elapsed_ms = now_ms - cycle_start_ms;
 

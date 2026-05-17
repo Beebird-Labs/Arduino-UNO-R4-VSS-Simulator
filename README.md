@@ -8,8 +8,9 @@ This project is a Vehicle Speed Sensor (VSS) simulator for the Arduino Uno R4. I
 
 - VSS signal generation
 - Speed ramps from 0 to 120 MPH and back down
+- Optional fixed 70 Hz output mode
 - Random cycle durations for varied simulation
-- Outputs on digital pin 7
+- Outputs on digital pin 8
 - Serial output for monitoring
 
 ## Requirements
@@ -36,7 +37,7 @@ This project is a Vehicle Speed Sensor (VSS) simulator for the Arduino Uno R4. I
 
 ## Usage
 
-1. Connect pin 7 of the Arduino to your speedometer input or testing device
+1. Connect pin 8 of the Arduino to your speedometer input or testing device
 2. Power on the Arduino
 3. The simulator will start automatically, cycling through speed ramps
 4. Monitor the serial output (115200 baud) for cycle information
@@ -45,7 +46,9 @@ This project is a Vehicle Speed Sensor (VSS) simulator for the Arduino Uno R4. I
 
 You can modify the following constants in `src/main.cpp`:
 
-- `VSS_PIN`: Output pin (default: 7)
+- `VSS_PIN`: Output pin (default: 8)
+- `OUTPUT_MODE`: Select `MODE_SWEEP` or `MODE_FIXED_70HZ` (default: `MODE_FIXED_70HZ`)
+- `FIXED_OUTPUT_HZ`: Fixed mode output frequency (default: 70.0 Hz)
 - `HZ_PER_MPH`: Frequency multiplier per MPH (default: 1.139)
 - `MAX_MPH`: Maximum simulated speed (default: 120.0)
 - `MIN_LOOP_MS` / `MAX_LOOP_MS`: Range for cycle durations (15-45 seconds)
